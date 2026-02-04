@@ -1,10 +1,9 @@
 import "./globals.css"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Footer from "@/components/Footer"
 
-export const metadata ={
-  title:"WhatBytes Store",
-  description:"Frontend Assignment",
+export const metadata = {
+  title: "Whatbytes Store",
+  description: "Frontend Assignment",
 }
 
 export default function RootLayout({
@@ -15,7 +14,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col">
-        <Header />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
