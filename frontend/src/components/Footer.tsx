@@ -28,7 +28,7 @@ export default function Footer(){
                 </div>
 
             </div>
-            <p className="text-center text-sm opacity-70 mt-6">© 2024 WhatBytes</p>
+            <p className="text-center text-sm opacity-70 mt-6">© 2026 WhatBytes</p>
 
         </footer>
     )

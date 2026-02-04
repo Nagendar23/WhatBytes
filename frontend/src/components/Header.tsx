@@ -1,4 +1,5 @@
 import { ShoppingCart, User } from "lucide-react"
+import { Search } from "lucide-react"
 
 type Props = {
   search: string
@@ -15,13 +16,16 @@ export default function Header({ search, onSearchChange }: Props) {
 
       {/* Search Bar */}
       <div className="flex-1 max-w-md mx-8">
+        
         <input
           type="text"
           placeholder="Search for products..."
           value={search}
+          
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full px-4 py-2 rounded-lg text-black outline-none focus:ring-2 focus:ring-blue-300"
+          className="w-full px-4 py-2 rounded-lg text-white outline-none focus:ring-2 focus:ring-blue-300"
         />
+        
       </div>
 
       {/* Cart + Profile */}

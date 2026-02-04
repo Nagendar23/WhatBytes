@@ -9,6 +9,7 @@ export const products: Product[] = [
     image: "/shoes.jpg",
     description: "Lightweight running shoes designed for daily comfort.",
     rating: 4.5,
+    slug: "running-shoes",
   },
   {
     id: "2",
@@ -18,6 +19,7 @@ export const products: Product[] = [
     image: "/headphones.jpg",
     description: "Noise-cancelling wireless headphones with deep bass.",
     rating: 4.2,
+    slug: "wireless-headphones",
   },
   {
     id: "3",
@@ -27,6 +29,7 @@ export const products: Product[] = [
     image: "/backpack.jpg",
     description: "Durable backpack suitable for travel and daily use.",
     rating: 4.0,
+    slug: "backpack",
   },
   {
     id: "4",
@@ -36,6 +39,7 @@ export const products: Product[] = [
     image: "/smart_watch.jpg",
     description: "Smartwatch with fitness tracking and notifications.",
     rating: 4.3,
+    slug: "smartwatch",
   },
   {
     id: "5",
@@ -45,6 +49,7 @@ export const products: Product[] = [
     image: "/sunglasses.jpg",
     description: "Stylish sunglasses with UV protection.",
     rating: 4.1,
+    slug: "sunglasses",
   },
   {
     id: "6",
@@ -54,6 +59,7 @@ export const products: Product[] = [
     image: "/camera.jpg",
     description: "High-resolution digital camera for photography lovers.",
     rating: 4.6,
+    slug: "digital-camera",
   },
   {
     id: "7",
@@ -63,6 +69,7 @@ export const products: Product[] = [
     image: "/tshirt.jpg",
     description: "Soft cotton t-shirt for everyday wear.",
     rating: 4.0,
+    slug: "t-shirt",
   },
   {
     id: "8",
@@ -72,5 +79,6 @@ export const products: Product[] = [
     image: "/smartphone.jpg",
     description: "Latest smartphone with powerful performance and camera.",
     rating: 4.7,
+    slug: "smartphone",
   },
 ]
