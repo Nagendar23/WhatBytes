@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { products } from '@/data/products'
 import { Star, ArrowLeft } from 'lucide-react'
+import { AddToCartButton } from '@/components/AddToCartButton'
 
 type Props = {
     params: Promise<{
@@ -73,9 +74,7 @@ export default async function ProductDetailPage({ params }: Props) {
                         
                         <p className='text-gray-700 text-base leading-relaxed mb-6'>{product.description}</p>
 
-                        <button className='bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg'>
-                            Add to Cart
-                        </button>           
+                        <AddToCartButton product={product} />
                     </div>
                 </div>
             </div>

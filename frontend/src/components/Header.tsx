@@ -1,5 +1,6 @@
 import { ShoppingCart, User } from "lucide-react"
 import { Search } from "lucide-react"
+import { useCartStore } from "@/store/cartStore"
 
 type Props = {
   search: string
@@ -7,6 +8,9 @@ type Props = {
 }
 
 export default function Header({ search, onSearchChange }: Props) {
+  const items = useCartStore((state)=> state.items)
+  const totalCount = items.reduce((sum,item)=> sum + item.quantity, 0)
+
   return (
     <header className="flex items-center justify-between px-8 py-4 bg-blue-700 text-white">
       {/* Logo */}
@@ -28,9 +32,16 @@ export default function Header({ search, onSearchChange }: Props) {
         
       </div>
 
-      {/* Cart + Profile */}
+      {/* Cart & Profile */}
       <div className="flex items-center gap-6">
-        <ShoppingCart />
+        <div className="relative">
+          <ShoppingCart />
+          {totalCount > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-500 text-xs px-1.5 py-0.5 rounded-full text-white font-semibold min-w-[20px] text-center">
+              {totalCount}
+            </span>
+          )}
+        </div>
         <User />
       </div>
     </header>
