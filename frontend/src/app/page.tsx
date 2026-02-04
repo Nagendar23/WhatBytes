@@ -1,9 +1,22 @@
-import Image from "next/image";
+import ProductCard from "@/components/ProductCard"
+import SidebarFilters from "@/components/SidebarFilters"
+import { products } from "@/data/products"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-     Main section
+    <div className="px-8 py-6 flex gap-6">
+      {/* Sidebar */}
+      <SidebarFilters />
+
+      {/* Product Grid */}
+      <div className="flex-1 grid gap-6 text-black grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+          />
+        ))}
+      </div>
     </div>
-  );
+  )
 }
