@@ -1,15 +1,44 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useRouter,useSearchParams } from "next/navigation"
 import Header from "@/components/Header"
 import SidebarFilters from "@/components/SidebarFilters"
 import ProductCard from "@/components/ProductCard"
 import { products } from "@/data/products"
 
 export default function HomePage() {
-  const [selectedCategory, setSelectedCategory] = useState("all")
-  const [price, setPrice] = useState(1000)
-  const [search, setSearch] = useState("")
+
+  const router = useRouter()
+  const searchParams = useSearchParams()
+
+  const [selectedCategory, setSelectedCategory] = useState(
+    (searchParams.get('category')) || "all"
+  )
+  const [price, setPrice] = useState(
+    Number(searchParams.get("price")) || 1000
+  )
+  const [search, setSearch] = useState(
+    searchParams.get("search") || ""
+  )
+
+  useEffect(()=>{
+    const params = new URLSearchParams()
+    if(selectedCategory !== "all"){
+      params.set("category", selectedCategory)
+    }
+    if(price !== 1000){
+      params.set("price", price.toString())
+    }
+    if(search.trim() !== ""){
+      params.set("search", search)
+    }
+
+    const queryString = params.toString()
+    router.replace(queryString ? `/?${queryString}` : "/")
+
+  },[selectedCategory, price, search, router])
+
 
   const filteredProducts = products.filter((product) => {
     const categoryMatch =

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { ShoppingCart, User } from "lucide-react"
 import { Search } from "lucide-react"
 import { useCartStore } from "@/store/cartStore"
@@ -35,12 +36,15 @@ export default function Header({ search, onSearchChange }: Props) {
       {/* Cart & Profile */}
       <div className="flex items-center gap-6">
         <div className="relative">
+                  <Link href="/cart" className="relative">
+
           <ShoppingCart />
           {totalCount > 0 && (
             <span className="absolute -top-2 -right-2 bg-red-500 text-xs px-1.5 py-0.5 rounded-full text-white font-semibold min-w-[20px] text-center">
               {totalCount}
             </span>
           )}
+          </Link>
         </div>
         <User />
       </div>
