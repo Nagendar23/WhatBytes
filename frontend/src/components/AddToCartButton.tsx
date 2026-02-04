@@ -12,7 +12,7 @@ export function AddToCartButton({ product }: Props) {
   return (
     <button
       onClick={() => addToCart(product)}
-      className='bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg'
+      className='bg-[#0658A8] text-white px-8 py-3.5 rounded-lg hover:bg-[#054580] transition-colors font-semibold text-lg'
     >
       Add to Cart
     </button>

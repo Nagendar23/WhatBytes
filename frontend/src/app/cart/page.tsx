@@ -64,14 +64,14 @@ export default function CartPage() {
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => decreaseQuantity(item.id)}
-                        className="w-10 h-10 flex items-center justify-center bg-blue-100 hover:bg-blue-200 text-blue-600 hover:text-blue-700 rounded-md transition-colors font-bold text-lg border border-blue-300"
+                        className="w-10 h-10 flex items-center justify-center bg-blue-100 hover:bg-blue-200 text-[#0658A8] hover:text-[#054580] rounded-md transition-colors font-bold text-lg border border-[#0658A8]"
                       >
                         −
                       </button>
                       <span className="w-12 text-center font-bold text-gray-800 text-lg">{item.quantity}</span>
                       <button
                         onClick={() => increaseQuantity(item.id)}
-                        className="w-10 h-10 flex items-center justify-center bg-blue-100 hover:bg-blue-200 text-blue-600 hover:text-blue-700 rounded-md transition-colors font-bold text-lg border border-blue-300"
+                        className="w-10 h-10 flex items-center justify-center bg-blue-100 hover:bg-blue-200 text-[#0658A8] hover:text-[#054580] rounded-md transition-colors font-bold text-lg border border-[#0658A8]"
                       >
                         +
                       </button>
@@ -114,15 +114,15 @@ export default function CartPage() {
                 </div>
                 <div className="border-t border-gray-200 pt-4 flex justify-between text-lg">
                   <span className="font-bold text-gray-800">Total</span>
-                  <span className="font-bold text-blue-600">${(subtotal * 1.1).toFixed(2)}</span>
+                  <span className="font-bold text-[#0658A8]">${(subtotal * 1.1).toFixed(2)}</span>
                 </div>
               </div>
 
-              <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg">
+              <button className="w-full bg-[#0658A8] text-white py-3 rounded-lg hover:bg-[#054580] transition-colors font-semibold text-lg">
                 Proceed to Checkout
               </button>
 
-              <Link href="/" className="block text-center text-blue-600 hover:text-blue-700 mt-4 font-medium">
+              <Link href="/" className="block text-center text-[#0658A8] hover:text-[#054580] mt-4 font-medium">
                 Continue Shopping
               </Link>
             </div>

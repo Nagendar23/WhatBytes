@@ -12,29 +12,30 @@ export default function SidebarFilters({
   onPriceChange,
 }: Props) {
   return (
-    <aside className="w-64 bg-blue-700 text-white rounded-lg p-5 h-fit">
+    <aside className="w-64 bg-[#0658A8] text-white rounded-lg p-6 h-fit shadow-lg">
       {/* Category */}
       <div>
-        <h2 className="font-semibold mb-3">Category</h2>
+        <h2 className="font-bold text-lg mb-4 border-b border-blue-400 pb-2">Category</h2>
 
-        <div className="space-y-2 text-sm">
+        <div className="space-y-3 text-sm">
           {["all", "electronics", "clothing", "home"].map((category) => (
-            <label key={category} className="flex items-center gap-2">
+            <label key={category} className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
               <input
                 type="radio"
                 name="category"
                 checked={selectedCategory === category}
                 onChange={() => onCategoryChange(category)}
+                className="w-4 h-4 cursor-pointer"
               />
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              <span className="font-medium">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
             </label>
           ))}
         </div>
       </div>
 
       {/* Price */}
-      <div className="mt-6">
-        <h2 className="font-semibold mb-3 text-base">Price</h2>
+      <div className="mt-8">
+        <h2 className="font-bold text-lg mb-4 border-b border-blue-400 pb-2">Price</h2>
 
         <input
           type="range"
@@ -45,9 +46,9 @@ export default function SidebarFilters({
           className="w-full h-2 bg-blue-300 rounded-lg appearance-none cursor-pointer slider"
         />
 
-        <div className="flex justify-between text-sm mt-2 font-medium">
+        <div className="flex justify-between text-sm mt-3 font-medium">
           <span>$0</span>
-          <span className="bg-blue-600 px-2 py-1 rounded text-xs">${price}</span>
+          <span className="bg-white text-[#0658A8] px-3 py-1 rounded font-bold">${price}</span>
         </div>
       </div>
     </aside>

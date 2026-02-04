@@ -16,14 +16,14 @@ export default async function ProductDetailPage({ params }: Props) {
     if(!product){
         return(
             <div className='min-h-screen bg-gray-50 px-8 py-6'>
-                <div className='max-w-4xl mx-auto'>
-                    <Link href='/' className='inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-4'>
+                <div className='max-w-6xl mx-auto'>
+                    <Link href='/' className='inline-flex items-center gap-2 text-[#0658A8] hover:text-[#054580] mb-6'>
                         <ArrowLeft size={20} />
                         Back to Products
                     </Link>
-                    <div className='bg-white rounded-lg shadow p-8 text-center'>
-                        <p className='text-gray-500 text-lg'>Product not found</p>
-                        <Link href='/' className='mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700'>
+                    <div className='bg-white rounded-lg shadow-lg p-12 text-center'>
+                        <p className='text-gray-500 text-lg mb-6'>Product not found</p>
+                        <Link href='/' className='inline-block bg-[#0658A8] text-white px-8 py-3 rounded-lg hover:bg-[#054580] transition-colors font-semibold'>
                             Browse Products
                         </Link>
                     </div>
@@ -33,46 +33,54 @@ export default async function ProductDetailPage({ params }: Props) {
     }
     return(
         <div className='min-h-screen bg-gray-50'>
-            <div className='px-8 py-6 max-w-6xl mx-auto'>
-                <Link href='/' className='inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-6'>
+            <div className='px-8 py-8 max-w-6xl mx-auto'>
+                <Link href='/' className='inline-flex items-center gap-2 text-[#0658A8] hover:text-[#054580] mb-8'>
                     <ArrowLeft size={20} />
                     Back to Products
                 </Link>
                 
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-lg shadow p-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-12 bg-white rounded-lg shadow-lg p-8'>
                     {/* image selection */}
-                    <div className="w-full">
-                        <div className='bg-gray-100 rounded-lg p-4'>
+                    <div className="w-full flex items-center justify-center">
+                        <div className='bg-gray-50 rounded-lg p-8 w-full'>
                             <img 
                             src={product.image} 
                             alt={product.title}
-                            className='w-full rounded-lg object-cover max-h-96' />
+                            className='w-full rounded-lg object-contain max-h-96 mx-auto' />
                         </div>
                     </div>
 
                     {/* details */}
-                    <div className='flex flex-col'>
-                        <h1 className='text-3xl font-bold text-gray-800 mb-2'>{product.title}</h1>
+                    <div className='flex flex-col justify-center'>
+                        <h1 className='text-4xl font-bold text-gray-800 mb-4'>{product.title}</h1>
                         
                         {product.rating && (
-                            <div className="flex items-center gap-1 text-sm mb-4">
-                                <Star size={18} className="text-yellow-400 fill-current" />
+                            <div className="flex items-center gap-2 text-sm mb-6">
+                                <div className="flex gap-1">
+                                    {[...Array(5)].map((_, i) => (
+                                        <Star
+                                            key={i}
+                                            size={18}
+                                            className={i < Math.floor(product.rating!) ? "text-yellow-400 fill-current" : "text-gray-300"}
+                                        />
+                                    ))}
+                                </div>
                                 <span className="font-medium text-gray-700">{product.rating}</span>
-                                <span className="text-gray-500 ml-1">({Math.floor(Math.random() * 100) + 50} reviews)</span>
+                                <span className="text-gray-500">({Math.floor(Math.random() * 100) + 50} reviews)</span>
                             </div>
                         )}
                         
-                        <p className='text-blue-700 text-3xl font-bold mb-4'>
+                        <p className='text-[#0658A8] text-4xl font-bold mb-6'>
                             ${product.price}
                         </p>
                         
-                        <div className='mb-4'>
-                            <span className='inline-block bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium capitalize'>
+                        <div className='mb-6'>
+                            <span className='inline-block bg-blue-100 text-[#0658A8] px-4 py-2 rounded-full text-sm font-semibold capitalize'>
                                 {product.category}
                             </span>
                         </div>
                         
-                        <p className='text-gray-700 text-base leading-relaxed mb-6'>{product.description}</p>
+                        <p className='text-gray-700 text-base leading-relaxed mb-8'>{product.description}</p>
 
                         <AddToCartButton product={product} />
                     </div>

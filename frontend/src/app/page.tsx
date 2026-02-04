@@ -57,7 +57,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gray-50">
       <Header search={search} onSearchChange={setSearch} />
 
-      <div className="px-8 py-6 flex gap-6">
+      <div className="px-8 py-8 flex gap-6">
         {/* Sidebar */}
         <SidebarFilters
           selectedCategory={selectedCategory}
@@ -67,14 +67,17 @@ export default function HomePage() {
         />
 
         {/* Product Grid */}
-        <div className="flex-1 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProducts.length === 0 && (
-            <p className="text-gray-500">No products found</p>
-          )}
+        <div className="flex-1">
+          <h1 className="text-3xl font-bold text-gray-800 mb-8">Product Listing</h1>
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredProducts.length === 0 && (
+              <p className="text-gray-500 text-lg col-span-full">No products found</p>
+            )}
 
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
